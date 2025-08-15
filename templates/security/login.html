@@ -42,11 +42,16 @@
                     <div
                         class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
                         <div class="w-full">
+                            {% if form.non_field_errors %}
+
+                            <div id="password_error_div" class="flex items-center justify-center mb-4 py-3 bg-red-100 border-l-4 border-red-500 text-red-700 dark:border-red-400 dark:text-red-500" role="alert">Invalid username or password.</div>
+
+                            {% endif %}
 
                             <!-- Método post y action para el URL (con el alias 'login') -->
-                            <form>
+                            <form method="post" action="{% url 'login' %}">
                                 <!-- CSRF token -->                                
-                                
+                                {% csrf_token %}
                                 <h1
                                     class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200">
                                     Login
@@ -57,7 +62,7 @@
                                     
                                     <!-- username -->
                                     <input
-                                        
+                                        name="username"
                                         class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                         placeholder="janedoe" />
 
@@ -68,7 +73,7 @@
 
                                     <!-- password -->
                                     <input
-                                        
+                                        name="password"
                                         class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                         placeholder="***************"
                                         type="password" />

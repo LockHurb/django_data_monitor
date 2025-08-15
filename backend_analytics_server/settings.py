@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-c*m=plax9ppwtqzk*%#zq%9k!^=yr2jnpx=*!ef_b0*8(_0mp0
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -67,7 +67,13 @@ TEMPLATES = [
         },
     },
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+  "https://localhost:8000",
+  "http://127.0.0.1:8000"
+]
+ALLOWED_HOSTS = [
+  "*",
+]
 WSGI_APPLICATION = "backend_analytics_server.wsgi.application"
 
 
@@ -122,3 +128,8 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+API_URL = 'http://HurbZD.pythonanywhere.com/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Asegúrate de que el directorio `static` exista en tu proyecto
+]
